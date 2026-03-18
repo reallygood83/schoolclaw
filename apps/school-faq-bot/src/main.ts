@@ -1,9 +1,8 @@
 import "@mariozechner/mini-lit/dist/ThemeToggle.js";
-import { Agent, type AgentMessage } from "@mariozechner/pi-agent-core";
+import { Agent, type AgentMessage, streamProxy } from "@mariozechner/pi-agent-core";
 import { getModel } from "@mariozechner/pi-ai";
 import {
 	type AgentState,
-	ApiKeyPromptDialog,
 	AppStorage,
 	ChatPanel,
 	CustomProvidersStore,
@@ -256,6 +255,12 @@ const createAgent = async (initialState?: Partial<AgentState>) => {
 			tools: [],
 		},
 		convertToLlm: customConvertToLlm,
+		streamFn: (model, context, options) =>
+			streamProxy(model, context, {
+				...options,
+				proxyUrl: window.location.origin,
+				authToken: "public",
+			}),
 	});
 
 	agentUnsubscribe = agent.subscribe((event) => {
@@ -301,7 +306,8 @@ const createAgent = async (initialState?: Partial<AgentState>) => {
 
 	await chatPanel.setAgent(agent, {
 		onApiKeyRequired: async (provider: string) => {
-			return await ApiKeyPromptDialog.prompt(provider);
+			await storage.providerKeys.set(provider, "server-managed");
+			return true;
 		},
 	});
 };

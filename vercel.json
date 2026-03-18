@@ -1,4 +1,12 @@
 {
 	"buildCommand": "cd apps/school-faq-bot && node ../../node_modules/vite/bin/vite.js build",
-	"outputDirectory": "apps/school-faq-bot/dist"
+	"outputDirectory": "apps/school-faq-bot/dist",
+	"functions": {
+		"api/stream.ts": {
+			"maxDuration": 60
+		}
+	},
+	"rewrites": [
+		{ "source": "/api/stream", "destination": "/api/stream" }
+	]
 }
