@@ -36,3 +36,4 @@ todo.md
 .pi/
 .omx/
 apps/school-faq-bot/school-config.generated.json
+.vercel
