@@ -1,6 +1,6 @@
 {
-	"framework": "vite",
+	"framework": null,
 	"installCommand": "npm install",
-	"buildCommand": "npm run build:school-faq-bot",
+	"buildCommand": "cd apps/school-faq-bot && npx vite build",
 	"outputDirectory": "apps/school-faq-bot/dist"
 }

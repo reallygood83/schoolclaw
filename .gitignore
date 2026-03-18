@@ -4,7 +4,14 @@ dist/
 .DS_Store
 *.tsbuildinfo
 # packages/*/node_modules/
-packages/*/dist/
+packages/coding-agent/dist/
+packages/mom/dist/
+packages/pods/dist/
+# Keep dist for Vercel deployment deps
+!packages/tui/dist/
+!packages/ai/dist/
+!packages/agent/dist/
+!packages/web-ui/dist/
 packages/*/dist-chrome/
 packages/*/dist-firefox/
 
