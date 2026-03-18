@@ -22,20 +22,23 @@ declare module "@mariozechner/pi-agent-core" {
 const parentHelpRenderer: MessageRenderer<ParentHelpMessage> = {
 	render: (message) => {
 		return html`
-			<div class="px-4 py-2">
-				<div class="rounded-2xl border border-border bg-secondary/40 p-4">
-					<div class="mb-3 text-xs font-medium tracking-wide text-muted-foreground">안내 바로가기</div>
-					<div class="grid gap-2 ${message.sourceUrl ? "xl:grid-cols-3 md:grid-cols-2" : "md:grid-cols-2"}">
+			<div class="parent-help-shell">
+				<div class="parent-help-card">
+					<div class="parent-help-header">
+						<div class="parent-help-kicker">바로 확인하기</div>
+						<div class="parent-help-title">학교 안내와 문의처</div>
+					</div>
+					<div class="parent-help-grid ${message.sourceUrl ? "parent-help-grid--three" : "parent-help-grid--two"}">
 						${
 							message.sourceUrl
 								? html`<a
 										href=${message.sourceUrl}
 										target="_blank"
 										rel="noreferrer"
-										class="rounded-xl border border-border bg-background px-4 py-3 text-sm transition-colors hover:bg-secondary"
+										class="parent-help-link"
 									>
-										<div class="font-medium text-foreground">출처 확인</div>
-										<div class="mt-1 text-xs text-muted-foreground">${message.sourceLabel || "학교 홈페이지 안내"}</div>
+										<div class="parent-help-link-label">출처 확인</div>
+										<div class="parent-help-link-value">${message.sourceLabel || "학교 홈페이지 안내"}</div>
 									</a>`
 								: null
 						}
@@ -43,17 +46,17 @@ const parentHelpRenderer: MessageRenderer<ParentHelpMessage> = {
 							href=${message.homepageUrl}
 							target="_blank"
 							rel="noreferrer"
-							class="rounded-xl border border-border bg-background px-4 py-3 text-sm transition-colors hover:bg-secondary"
+							class="parent-help-link"
 						>
-							<div class="font-medium text-foreground">학교 홈페이지</div>
-							<div class="mt-1 text-xs text-muted-foreground">${message.homepageUrl}</div>
+							<div class="parent-help-link-label">학교 홈페이지</div>
+							<div class="parent-help-link-value">바로가기</div>
 						</a>
 						<a
 							href=${`tel:${message.phone.replace(/-/g, "")}`}
-							class="rounded-xl border border-border bg-background px-4 py-3 text-sm transition-colors hover:bg-secondary"
+							class="parent-help-link"
 						>
-							<div class="font-medium text-foreground">학교 문의</div>
-							<div class="mt-1 text-xs text-muted-foreground">${message.schoolName} ${message.phone}</div>
+							<div class="parent-help-link-label">학교 문의</div>
+							<div class="parent-help-link-value">${message.schoolName} ${message.phone}</div>
 						</a>
 					</div>
 				</div>

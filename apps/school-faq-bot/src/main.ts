@@ -532,6 +532,7 @@ async function initApp() {
 	);
 
 	chatPanel = new ChatPanel();
+	chatPanel.classList.add("school-chat-panel");
 
 	const urlParams = new URLSearchParams(window.location.search);
 	const sessionIdFromUrl = urlParams.get("session");
