@@ -482,18 +482,21 @@ const renderApp = () => {
 									<div class="section-label">
 										<span>Quick Start</span>
 									</div>
-									<div class="questions-grid">
-										${ui.recommendedQuestions.map(
-										(question) => html`<button
-											class="question-btn"
-											@click=${() => submitRecommendedQuestion(question)}
-										>
-											<span class="question-icon">
-												<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-											</span>
-											<span>${question}</span>
-										</button>`,
-									)}
+								<div class="questions-grid">
+									${ui.recommendedQuestions.map(
+									(item) => html`<button
+										class="question-btn question-btn--${item.accent}"
+										@click=${() => submitRecommendedQuestion(item.question)}
+									>
+										<span class="question-icon question-icon--${item.accent}">
+											<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+										</span>
+										<span class="question-btn-content">
+											<span class="question-btn-category">${item.category}</span>
+											<span>${item.question}</span>
+										</span>
+									</button>`,
+								)}
 								</div>
 							</div>
 						</div>

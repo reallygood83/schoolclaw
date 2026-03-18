@@ -29,7 +29,12 @@ export interface SchoolUiConfig {
 	tagline: string;
 	welcomeTitle: string;
 	welcomeDescription: string;
-	recommendedQuestions: string[];
+	recommendedQuestions: {
+		category: string;
+		question: string;
+		accent: "amber" | "green" | "sky" | "rose";
+		icon: "notice" | "calendar" | "meal" | "app" | "community" | "school";
+	}[];
 }
 
 export interface SchoolConfig {
