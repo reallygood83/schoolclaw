@@ -353,10 +353,11 @@ const renderApp = () => {
 	const showWelcomePanel = agent ? !hasConversation(agent.state.messages) : true;
 
 	const appHtml = html`
-		<div class="w-full h-screen flex flex-col bg-background text-foreground overflow-hidden">
+		<div class="school-app-shell w-full h-screen flex flex-col overflow-hidden text-foreground">
 			<!-- Header -->
-			<div class="flex items-center justify-between border-b border-border shrink-0">
-				<div class="flex items-center gap-2 px-4 py-2">
+			<div class="school-app-header shrink-0">
+				<div class="mx-auto flex w-full max-w-6xl items-center justify-between gap-3 px-4 py-3 md:px-6">
+				<div class="flex items-center gap-2">
 					${Button({
 						variant: "ghost",
 						size: "sm",
@@ -433,40 +434,67 @@ const renderApp = () => {
 								>
 									${currentTitle}
 								</button>`
-							: html`<span class="flex items-center gap-2 text-base font-semibold text-foreground">
+							: html`<span class="header-school-name">
 								${icon(GraduationCap, "sm")}
 								${schoolInfo.name}
 							</span>`
 					}
 				</div>
-				<div class="flex items-center gap-1 px-2">
-					<span class="hidden px-2 text-xs text-muted-foreground md:block">${ui.tagline}</span>
+				<div class="flex items-center gap-2">
+					<span class="header-tagline">${ui.tagline}</span>
 					<theme-toggle></theme-toggle>
 				</div>
 			</div>
 
 			${
 				showWelcomePanel
-					? html`<div class="border-b border-border bg-gradient-to-br from-secondary/50 via-background to-background px-4 py-6 md:px-6">
-						<div class="mx-auto flex max-w-5xl flex-col gap-5">
-							<div class="flex flex-col gap-2">
-								<div class="flex items-center gap-2 text-sm font-medium text-muted-foreground">
-									${icon(GraduationCap, "sm")}
-									${ui.tagline}
+					? html`<div class="welcome-stage px-4 py-6 md:px-6 md:py-8">
+						<div class="welcome-panel mx-auto max-w-6xl">
+							<div class="welcome-layout relative z-10">
+								<div class="welcome-copy">
+									<div class="school-badge">
+										${icon(GraduationCap, "sm")}
+										<span>${ui.tagline}</span>
+									</div>
+									<h1 class="welcome-title">${ui.welcomeTitle}</h1>
+									<p class="welcome-description">${ui.welcomeDescription}</p>
+									<div class="contact-card">
+										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+										<span>${schoolInfo.name} ${schoolInfo.phone}</span>
+									</div>
+									<div class="welcome-meta-grid">
+										<a class="welcome-meta-card" href=${schoolInfo.website} target="_blank" rel="noreferrer">
+											<div class="welcome-meta-label">학교 홈페이지</div>
+											<div class="welcome-meta-value">바로가기</div>
+										</a>
+										<div class="welcome-meta-card">
+											<div class="welcome-meta-label">대상</div>
+											<div class="welcome-meta-value">2026 학부모 안내</div>
+										</div>
+									</div>
 								</div>
-								<h1 class="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">${ui.welcomeTitle}</h1>
-								<p class="max-w-3xl text-sm leading-6 text-muted-foreground md:text-base">${ui.welcomeDescription}</p>
-								<p class="text-sm text-muted-foreground">문의: ${schoolInfo.name} ${schoolInfo.phone}</p>
-							</div>
-							<div class="grid gap-2 md:grid-cols-2 xl:grid-cols-3">
-								${ui.recommendedQuestions.map(
-									(question) => html`<button
-										class="rounded-xl border border-border bg-background px-4 py-3 text-left text-sm transition-colors hover:bg-secondary"
-										@click=${() => submitRecommendedQuestion(question)}
-									>
-										${question}
-									</button>`,
-								)}
+								<div class="welcome-actions-card">
+									<div class="section-label">
+										<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg>
+										<span>자주 묻는 질문</span>
+									</div>
+									<p class="questions-description">가장 많이 묻는 안내를 바로 열어보고, 답변 아래에서 출처와 문의처까지 확인하세요.</p>
+									<div class="section-label">
+										<span>Quick Start</span>
+									</div>
+									<div class="questions-grid">
+										${ui.recommendedQuestions.map(
+										(question) => html`<button
+											class="question-btn"
+											@click=${() => submitRecommendedQuestion(question)}
+										>
+											<span class="question-icon">
+												<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+											</span>
+											<span>${question}</span>
+										</button>`,
+									)}
+								</div>
 							</div>
 						</div>
 					</div>`
@@ -490,10 +518,13 @@ async function initApp() {
 
 	render(
 		html`
-			<div class="w-full h-screen flex items-center justify-center bg-background text-foreground">
-				<div class="flex flex-col items-center gap-4">
-					<div class="text-4xl">${icon(GraduationCap, "lg")}</div>
-					<div class="text-muted-foreground">${schoolInfo.name} 안내 도우미를 불러오는 중...</div>
+			<div class="welcome-panel w-full h-screen flex items-center justify-center text-foreground">
+				<div class="relative z-10 flex flex-col items-center gap-5">
+					<div class="school-badge" style="padding: 0.75rem 1.25rem; font-size: 1rem;">
+						${icon(GraduationCap, "md")}
+						<span>${schoolInfo.name}</span>
+					</div>
+					<div class="text-muted-foreground animate-pulse">안내 도우미를 불러오는 중...</div>
 				</div>
 			</div>
 		`,
