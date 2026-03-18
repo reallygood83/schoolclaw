@@ -1,6 +1,4 @@
 {
-	"framework": null,
-	"installCommand": "npm install --ignore-scripts",
 	"buildCommand": "cd apps/school-faq-bot && node ../../node_modules/vite/bin/vite.js build",
 	"outputDirectory": "apps/school-faq-bot/dist"
 }

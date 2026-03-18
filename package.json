@@ -30,7 +30,7 @@
 		"release:patch": "node scripts/release.mjs patch",
 		"release:minor": "node scripts/release.mjs minor",
 		"release:major": "node scripts/release.mjs major",
-		"prepare": "husky || true"
+		"prepare": "node -e \"try{require('child_process').execSync('husky',{stdio:'inherit'})}catch(e){}\""
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.3.5",
