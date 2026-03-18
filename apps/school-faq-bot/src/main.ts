@@ -506,6 +506,40 @@ const renderApp = () => {
 								</div>
 							</div>
 						</div>
+						<div class="welcome-chat-input mx-auto max-w-6xl mt-4">
+							<div class="welcome-input-wrapper">
+								<input
+									type="text"
+									class="welcome-input"
+									placeholder="박달초등학교에 대해 무엇이든 물어보세요..."
+									@keydown=${(e: KeyboardEvent) => {
+										if (e.key === "Enter") {
+											const input = e.target as HTMLInputElement;
+											const text = input.value.trim();
+											if (text) {
+												input.value = "";
+												submitRecommendedQuestion(text);
+											}
+										}
+									}}
+								/>
+								<button
+									class="welcome-send-btn"
+									@click=${() => {
+										const input = document.querySelector(".welcome-input") as HTMLInputElement;
+										if (input) {
+											const text = input.value.trim();
+											if (text) {
+												input.value = "";
+												submitRecommendedQuestion(text);
+											}
+										}
+									}}
+								>
+									<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+								</button>
+							</div>
+						</div>
 					</div>`
 					: null
 			}

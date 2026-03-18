@@ -333,6 +333,83 @@ body {
 	position: relative;
 }
 
+.welcome-chat-input {
+	padding: 0 1.5rem 0.5rem;
+}
+
+.welcome-input-wrapper {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.6rem 0.6rem 0.6rem 1.25rem;
+	border-radius: 9999px;
+	background: rgba(255, 255, 255, 0.95);
+	border: 1px solid rgba(226, 232, 240, 0.95);
+	box-shadow: 0 16px 40px rgba(148, 163, 184, 0.16);
+	backdrop-filter: blur(18px);
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.welcome-input-wrapper:focus-within {
+	border-color: rgba(245, 158, 11, 0.5);
+	box-shadow: 0 16px 40px rgba(245, 158, 11, 0.1);
+}
+
+.welcome-input {
+	flex: 1;
+	border: none;
+	outline: none;
+	background: transparent;
+	font-size: 1rem;
+	line-height: 1.5;
+	color: hsl(var(--foreground));
+}
+
+.welcome-input::placeholder {
+	color: rgba(100, 116, 139, 0.8);
+}
+
+.welcome-send-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 9999px;
+	border: none;
+	background: linear-gradient(135deg, #f59e0b, #22c55e);
+	color: white;
+	cursor: pointer;
+	transition: transform 0.15s ease, box-shadow 0.15s ease;
+	flex-shrink: 0;
+}
+
+.welcome-send-btn:hover {
+	transform: scale(1.08);
+	box-shadow: 0 8px 20px rgba(245, 158, 11, 0.25);
+}
+
+.dark .welcome-input-wrapper {
+	background: rgba(15, 23, 42, 0.9);
+	border-color: rgba(71, 85, 105, 0.6);
+	box-shadow: 0 16px 40px rgba(2, 6, 23, 0.4);
+}
+
+.dark .welcome-input-wrapper:focus-within {
+	border-color: rgba(251, 191, 36, 0.4);
+	box-shadow: 0 16px 40px rgba(251, 191, 36, 0.08);
+}
+
+.dark .welcome-input::placeholder {
+	color: rgba(148, 163, 184, 0.7);
+}
+
+@media (max-width: 767px) {
+	.welcome-chat-input {
+		padding: 0 0.5rem 0.5rem;
+	}
+}
+
 /* Welcome panel styling */
 .welcome-panel {
 	background:
