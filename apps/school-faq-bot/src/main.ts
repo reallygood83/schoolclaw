@@ -454,7 +454,7 @@ const renderApp = () => {
 
 			${
 				showWelcomePanel
-					? html`<div class="welcome-stage px-4 py-6 md:px-6 md:py-8">
+					? html`<div class="welcome-stage shrink overflow-y-auto px-4 py-4 md:px-6 md:py-6">
 						<div class="welcome-panel mx-auto max-w-6xl">
 							<div class="welcome-layout relative z-10">
 								<div class="welcome-copy">
