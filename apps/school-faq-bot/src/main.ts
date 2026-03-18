@@ -540,6 +540,8 @@ async function initApp() {
 		app,
 	);
 
+	await storage.providerKeys.set("cerebras", "server-managed");
+
 	chatPanel = new ChatPanel();
 	chatPanel.classList.add("school-chat-panel");
 
