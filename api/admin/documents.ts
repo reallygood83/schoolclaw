@@ -64,14 +64,14 @@ export async function POST(req: Request): Promise<Response> {
 		const blobPath = `documents/${timestamp}/${filename}`;
 		const fileBody = new Blob([buffer], { type: file.type || "application/octet-stream" });
 		const blob = await put(blobPath, fileBody, {
-			access: "public",
+			access: "private",
 			contentType: file.type || "application/octet-stream",
 		});
 
 		const textBlobPath = `documents/${timestamp}/${filename}.extracted.json`;
 		const jsonBody = JSON.stringify({ paragraphs: extractedText, filename, uploadedAt: new Date().toISOString() });
 		await put(textBlobPath, jsonBody, {
-			access: "public",
+			access: "private",
 			contentType: "application/json",
 		});
 

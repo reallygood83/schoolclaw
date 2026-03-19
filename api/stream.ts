@@ -17,7 +17,7 @@ async function loadKnowledge(): Promise<string> {
 
 		const allParagraphs: string[] = [];
 		for (const blob of extractedBlobs) {
-			const res = await fetch(blob.url);
+			const res = await fetch(blob.downloadUrl);
 			const data = (await res.json()) as { paragraphs: string[] };
 			allParagraphs.push(...data.paragraphs);
 		}
