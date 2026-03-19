@@ -36,38 +36,60 @@ body {
 }
 
 .school-chat-panel {
-	padding: 0 1rem 1rem;
-	flex: 1 1 0;
-	min-height: 0;
-	overflow: hidden;
+	flex: 1 1 0 !important;
+	min-height: 0 !important;
+	overflow: hidden !important;
+	display: flex !important;
+	flex-direction: column !important;
+	padding: 0;
 }
 
+/* ChatPanel's direct child wrapper */
+.school-chat-panel > div {
+	display: flex !important;
+	flex: 1 1 0 !important;
+	min-height: 0 !important;
+	height: 100% !important;
+}
+
+/* Container around agent-interface (the div.h-full wrapper) */
+.school-chat-panel > div > div {
+	display: flex !important;
+	flex-direction: column !important;
+	flex: 1 1 0 !important;
+	min-height: 0 !important;
+	height: 100% !important;
+}
+
+/* agent-interface element itself */
 .school-chat-panel agent-interface {
-	display: flex;
-	flex-direction: column;
-	height: 100%;
-	overflow: hidden;
-}
-
-.school-chat-panel agent-interface > div {
-	display: flex;
-	flex-direction: column;
-	height: 100%;
-	overflow: hidden;
-}
-
-.school-chat-panel agent-interface .flex-1.overflow-y-auto {
-	flex: 1 1 0;
-	min-height: 0;
-	overflow-y: auto;
-}
-
-.school-chat-panel agent-interface .shrink-0 {
-	flex-shrink: 0;
-}
-
-.school-chat-panel agent-interface > div {
+	display: flex !important;
+	flex-direction: column !important;
+	flex: 1 1 0 !important;
+	min-height: 0 !important;
+	height: 100% !important;
 	background: transparent;
+}
+
+/* agent-interface's inner container */
+.school-chat-panel agent-interface > div {
+	display: flex !important;
+	flex-direction: column !important;
+	flex: 1 1 0 !important;
+	min-height: 0 !important;
+	height: 100% !important;
+	background: transparent;
+}
+
+.school-chat-panel .flex-1.overflow-y-auto {
+	flex: 1 1 0 !important;
+	min-height: 0 !important;
+	overflow-y: auto !important;
+}
+
+.school-chat-panel .shrink-0:has(message-editor) {
+	flex-shrink: 0 !important;
+	padding: 0.75rem 1rem 1rem;
 }
 
 .school-chat-panel .max-w-3xl {
