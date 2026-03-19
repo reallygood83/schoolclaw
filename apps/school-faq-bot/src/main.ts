@@ -464,19 +464,19 @@ const renderApp = () => {
 									</div>
 									<h1 class="welcome-title">${ui.welcomeTitle}</h1>
 									<p class="welcome-description">${ui.welcomeDescription}</p>
+									<div class="welcome-meta-grid">
+										<div class="welcome-meta-card">
+											<div class="welcome-meta-label">데이터 소스</div>
+											<div class="welcome-meta-value">학교 업로드 문서</div>
+										</div>
+										<div class="welcome-meta-card">
+											<div class="welcome-meta-label">활용 범위</div>
+											<div class="welcome-meta-value">행정 / 학사 / 상담</div>
+										</div>
+									</div>
 									<div class="contact-card">
 										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
 										<span>${schoolInfo.name} ${schoolInfo.phone}</span>
-									</div>
-									<div class="welcome-meta-grid">
-										<a class="welcome-meta-card" href=${schoolInfo.website} target="_blank" rel="noreferrer">
-											<div class="welcome-meta-label">학교 홈페이지</div>
-											<div class="welcome-meta-value">바로가기</div>
-										</a>
-										<div class="welcome-meta-card">
-											<div class="welcome-meta-label">대상</div>
-											<div class="welcome-meta-value">2026 학부모 안내</div>
-										</div>
 									</div>
 								</div>
 								<div class="welcome-actions-card">
@@ -484,7 +484,7 @@ const renderApp = () => {
 										<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg>
 										<span>자주 묻는 질문</span>
 									</div>
-									<p class="questions-description">가장 많이 묻는 안내를 바로 열어보고, 답변 아래에서 출처와 문의처까지 확인하세요.</p>
+									<p class="questions-description">업로드된 학교 문서 기반으로 답변합니다. 아래 질문을 눌러보세요.</p>
 									<div class="section-label">
 										<span>Quick Start</span>
 									</div>

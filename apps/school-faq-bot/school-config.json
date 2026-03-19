@@ -17,240 +17,47 @@
 		"modelId": "qwen-3-235b-a22b-instruct-2507"
 	},
 	"ui": {
-		"tagline": "배움 감성 나눔으로 마을과 함께하는 행복공동체",
-		"welcomeTitle": "박달초등학교 2026 학부모 안내",
-		"welcomeDescription": "공지사항, 가정통신문, 급식, 행사일정, 학부모 참여 메뉴처럼 홈페이지에서 바로 확인할 수 있는 정보를 빠르게 안내합니다.",
+		"tagline": "학교 데이터 기반 AI 에이전트",
+		"welcomeTitle": "박달초 AI 도우미",
+		"welcomeDescription": "관리자가 업로드한 학교 문서를 기반으로 정확하게 안내합니다. 행정, 학사, 급식, 상담 등 학교 운영 전반에 대해 물어보세요.",
 		"recommendedQuestions": [
 			{
-				"category": "알림",
-				"question": "공지사항은 어디서 확인하나요?",
+				"category": "행정",
+				"question": "이번 학기 학사일정은 어떻게 되나요?",
 				"accent": "amber",
-				"icon": "notice"
+				"icon": "calendar"
 			},
 			{
 				"category": "학사",
-				"question": "등교 시간은 언제인가요?",
+				"question": "등교 시간과 하교 시간은 어떻게 되나요?",
 				"accent": "green",
 				"icon": "calendar"
 			},
 			{
-				"category": "알림장",
-				"question": "학교 공식 알림장은 무엇을 쓰나요?",
+				"category": "안내",
+				"question": "가정통신문 주요 안내 사항이 있나요?",
 				"accent": "sky",
-				"icon": "app"
+				"icon": "notice"
 			},
 			{
-				"category": "가정통신문",
-				"question": "가정통신문은 어디서 보나요?",
+				"category": "상담",
+				"question": "학부모 상담은 어떻게 신청하나요?",
 				"accent": "rose",
-				"icon": "school"
+				"icon": "community"
 			},
 			{
 				"category": "급식",
-				"question": "오늘의 급식은 어디서 확인할 수 있나요?",
+				"question": "급식 관련 안내 사항이 있나요?",
 				"accent": "green",
 				"icon": "meal"
 			},
 			{
-				"category": "행사",
-				"question": "행사일정은 어디서 보나요?",
+				"category": "운영",
+				"question": "방과후 프로그램은 어떤 것이 있나요?",
 				"accent": "amber",
-				"icon": "community"
+				"icon": "school"
 			}
 		]
 	},
-	"faq": [
-		{
-			"category": "학교 기본 안내",
-			"question": "박달초등학교 주소와 연락처는 어떻게 되나요?",
-			"answer": "박달초등학교 주소는 경기도 안양시 만안구 삼봉로 38이며, 대표 전화는 031-441-1980, 팩스는 031-441-1981입니다.",
-			"sourceLabel": "박달초등학교 메인 화면",
-			"sourceUrl": "https://bakdal-e.goeay.kr/bakdal-e/main.do"
-		},
-		{
-			"category": "학교 기본 안내",
-			"question": "박달초등학교 공식 홈페이지는 어디인가요?",
-			"answer": "박달초등학교 공식 홈페이지는 https://bakdal-e.goeay.kr/bakdal-e/main.do 입니다.",
-			"sourceLabel": "박달초등학교 메인 화면",
-			"sourceUrl": "https://bakdal-e.goeay.kr/bakdal-e/main.do"
-		},
-		{
-			"category": "학교 기본 안내",
-			"question": "박달초 홈페이지에서 로그인이나 회원가입도 가능한가요?",
-			"answer": "네. 홈페이지 상단에서 로그인과 회원가입 메뉴를 확인할 수 있습니다."
-		},
-		{
-			"category": "학교 기본 안내",
-			"question": "박달초 홈페이지에서 학부모 메뉴는 어디에 있나요?",
-			"answer": "홈페이지 상단 메뉴에서 학부모마당을 통해 학부모 관련 정보를 확인할 수 있습니다."
-		},
-		{
-			"category": "공지와 가정통신문",
-			"question": "공지사항은 어디서 확인하나요?",
-			"answer": "학교 홈페이지 메인 화면의 공지사항 영역과 알림마당 메뉴에서 확인할 수 있습니다."
-		},
-		{
-			"category": "공지와 가정통신문",
-			"question": "가정통신문은 어디서 확인하나요?",
-			"answer": "학교 홈페이지 메인 화면의 가정통신문 영역에서 확인할 수 있으며, 학부모가 자주 확인해야 하는 안내는 해당 게시판을 중심으로 공지됩니다."
-		},
-		{
-			"category": "공지와 가정통신문",
-			"question": "2026 학교생활안내서 게시 여부를 홈페이지에서 확인할 수 있나요?",
-			"answer": "네. 홈페이지 공지사항에 2026 학교생활안내서 게시 안내가 올라와 있습니다.",
-			"sourceLabel": "박달초 공지사항",
-			"sourceUrl": "https://bakdal-e.goeay.kr/bakdal-e/main.do"
-		},
-		{
-			"category": "공지와 가정통신문",
-			"question": "교육급여나 교육비 지원 관련 안내도 홈페이지에서 볼 수 있나요?",
-			"answer": "네. 홈페이지 팝업존에는 2026년 교육급여 및 교육비 지원 관련 안내가 보이며, 가정통신문 목록에도 2026학년도 교육급여 및 교육비 지원 안내가 게시되어 있습니다.",
-			"sourceLabel": "박달초 메인 화면 및 가정통신문",
-			"sourceUrl": "https://bakdal-e.goeay.kr/bakdal-e/na/ntt/selectNttList.do?mi=2979&bbsId=993"
-		},
-		{
-			"category": "공지와 가정통신문",
-			"question": "학습준비물 지원 안내도 홈페이지에서 확인할 수 있나요?",
-			"answer": "네. 가정통신문 목록에서 2026학년도 1학기 학습준비물 지원 목록 안내를 확인할 수 있습니다.",
-			"sourceLabel": "박달초 가정통신문",
-			"sourceUrl": "https://bakdal-e.goeay.kr/bakdal-e/na/ntt/selectNttList.do?mi=2979&bbsId=993"
-		},
-		{
-			"category": "공지와 가정통신문",
-			"question": "학교 공식 모바일 알림장 안내도 확인할 수 있나요?",
-			"answer": "네. 가정통신문과 공지 안내를 통해 2026학년도 학교 공식 모바일 알림장 하이클래스 이용 안내를 확인할 수 있습니다.",
-			"sourceLabel": "하이클래스 이용 안내",
-			"sourceUrl": "https://bakdal-e.goeay.kr/bakdal-e/na/ntt/selectNttInfo.do?mi=2979&bbsId=993&nttSn=1303895"
-		},
-		{
-			"category": "공지와 가정통신문",
-			"question": "안심알리미 서비스 안내도 홈페이지에서 볼 수 있나요?",
-			"answer": "네. 학교 홈페이지 공개 안내를 통해 안심알리미 서비스 이용 안내를 확인할 수 있습니다.",
-			"sourceLabel": "안심알리미 서비스 이용 안내",
-			"sourceUrl": "https://bakdal-e.goeay.kr/bakdal-e/na/ntt/selectNttInfo.do?mi=2979&bbsId=993&nttSn=1303898"
-		},
-		{
-			"category": "학사 운영과 행사",
-			"question": "학교 행사 일정은 어디서 보나요?",
-			"answer": "홈페이지 메인 화면의 행사일정 영역에서 확인할 수 있습니다."
-		},
-		{
-			"category": "학사 운영과 행사",
-			"question": "등교 시간은 언제인가요?",
-			"answer": "공개 안내문 기준으로 전 학년 등교 시간은 오전 8시 40분부터 9시까지입니다. 학교에서는 안전사고 예방을 위해 등교 시간 준수를 안내하고 있습니다.",
-			"sourceLabel": "2026학년도 1학기 학사 운영 방안 안내",
-			"sourceUrl": "https://bakdal-e.goeay.kr/bakdal-e/na/ntt/selectNttInfo.do?mi=2979&bbsId=993&nttSn=1302809"
-		},
-		{
-			"category": "학사 운영과 행사",
-			"question": "학교장허가 교외체험학습은 몇 일까지 가능한가요?",
-			"answer": "2026학년도 1학기 학사 운영 방안 안내 기준으로 학교장허가 교외체험학습은 최대 20일까지 가능하며, 가정학습은 제외로 안내되어 있습니다. 자세한 신청 절차는 학교 안내문을 함께 확인해 주세요.",
-			"sourceLabel": "2026학년도 1학기 학사 운영 방안 안내",
-			"sourceUrl": "https://bakdal-e.goeay.kr/bakdal-e/na/ntt/selectNttInfo.do?mi=2979&bbsId=993&nttSn=1302809"
-		},
-		{
-			"category": "학사 운영과 행사",
-			"question": "2026학년도 학부모 대상 주요 안내는 홈페이지에서 확인할 수 있나요?",
-			"answer": "네. 홈페이지에는 2026 학교운영위원회 학부모위원 당선자 공고, 2026 학교생활안내서 게시, 2026학년도 입학식, 2026 학교교육과정설명회 및 학부모총회 같은 안내가 게시되어 있습니다."
-		},
-		{
-			"category": "학사 운영과 행사",
-			"question": "새 학기 첫날 2~6학년 운영 안내도 확인할 수 있나요?",
-			"answer": "공개 안내문 기준으로 2~6학년은 3월 3일 정상 등교, 오전 9시까지 등교, 급식 실시로 안내되어 있습니다.",
-			"sourceLabel": "2026학년도 1학기 학사 운영 방안 안내",
-			"sourceUrl": "https://bakdal-e.goeay.kr/bakdal-e/na/ntt/selectNttInfo.do?mi=2979&bbsId=993&nttSn=1302809"
-		},
-		{
-			"category": "학사 운영과 행사",
-			"question": "1학년 입학식 일정은 어떻게 되나요?",
-			"answer": "공개 안내문 기준으로 2026학년도 1학년 입학식은 2026년 3월 3일 오전 10시에 박달초등학교 도담터에서 진행됩니다.",
-			"sourceLabel": "2026학년도 입학식 안내장",
-			"sourceUrl": "https://bakdal-e.goeay.kr/bakdal-e/na/ntt/selectNttInfo.do?mi=2979&bbsId=993&nttSn=1302814"
-		},
-		{
-			"category": "학사 운영과 행사",
-			"question": "입학식 날 1학년 준비물과 귀가 안내는 어떻게 되나요?",
-			"answer": "공개 안내문 기준으로 입학식 당일 준비물은 책가방과 실내화 주머니이며, 오전 11시부터 학부모와 함께 귀가하고 급식은 제공되지 않는 것으로 안내되어 있습니다.",
-			"sourceLabel": "2026학년도 입학식 안내장",
-			"sourceUrl": "https://bakdal-e.goeay.kr/bakdal-e/na/ntt/selectNttInfo.do?mi=2979&bbsId=993&nttSn=1302814"
-		},
-		{
-			"category": "학사 운영과 행사",
-			"question": "행사일정 화면에서 확인되는 예시 일정이 있나요?",
-			"answer": "홈페이지 메인 행사일정 영역에서는 2026년 3월 1일 삼일절 일정이 표시되어 있습니다. 자세한 내용은 행사일정 더보기 메뉴에서 확인해 주세요."
-		},
-		{
-			"category": "급식과 학생 지원",
-			"question": "오늘의 급식은 어디서 확인할 수 있나요?",
-			"answer": "홈페이지 메인 화면의 오늘의 식단 영역과 급식소식 메뉴에서 확인할 수 있습니다."
-		},
-		{
-			"category": "급식과 학생 지원",
-			"question": "홈페이지에서 오늘 급식 예시도 볼 수 있나요?",
-			"answer": "네. 메인 화면 오늘의 식단 영역에는 중식 열량과 함께 메뉴 예시가 표시됩니다. 화면에 보이는 예시는 시점에 따라 달라질 수 있으니 최신 급식 정보는 급식소식 메뉴에서 다시 확인해 주세요."
-		},
-		{
-			"category": "급식과 학생 지원",
-			"question": "상담이나 학생 지원 관련 정보는 어디서 찾을 수 있나요?",
-			"answer": "학교 홈페이지에서 위클래스 메뉴를 통해 관련 안내를 확인할 수 있습니다. 자세한 상담 신청 방법은 해당 메뉴 또는 학교로 문의해 주세요."
-		},
-		{
-			"category": "급식과 학생 지원",
-			"question": "학교 공식 알림장은 무엇을 사용하나요?",
-			"answer": "공개 안내문 기준으로 2026학년도부터 기존 e-알리미 대신 하이클래스를 학교 공식 모바일 알림장으로 안내하고 있습니다.",
-			"sourceLabel": "하이클래스 이용 안내",
-			"sourceUrl": "https://bakdal-e.goeay.kr/bakdal-e/na/ntt/selectNttInfo.do?mi=2979&bbsId=993&nttSn=1303895"
-		},
-		{
-			"category": "급식과 학생 지원",
-			"question": "하이클래스에서는 어떤 정보를 볼 수 있나요?",
-			"answer": "공개 안내문 기준으로 하이클래스에서는 알림장, 공지사항, 학사일정, 가정통신문, 급식 정보, 앨범, 학급설문 등을 확인할 수 있습니다.",
-			"sourceLabel": "하이클래스 이용 안내",
-			"sourceUrl": "https://bakdal-e.goeay.kr/bakdal-e/na/ntt/selectNttInfo.do?mi=2979&bbsId=993&nttSn=1303895"
-		},
-		{
-			"category": "급식과 학생 지원",
-			"question": "하이클래스 가입 시 학부모와 학생이 같은 계정을 써도 되나요?",
-			"answer": "공개 안내문 기준으로 학부모와 학생은 이용 권한이 다르므로 각각 학부모 유형과 학생 유형으로 따로 가입하도록 안내되어 있습니다.",
-			"sourceLabel": "하이클래스 이용 안내",
-			"sourceUrl": "https://bakdal-e.goeay.kr/bakdal-e/na/ntt/selectNttInfo.do?mi=2979&bbsId=993&nttSn=1303895"
-		},
-		{
-			"category": "급식과 학생 지원",
-			"question": "안심알리미 서비스는 어떻게 운영되나요?",
-			"answer": "공개 안내문 기준으로 안심알리미 이용 기간은 2026년 3월 1일부터 2027년 2월 28일까지이며, 자녀가 단말기를 가지고 교문 중계기를 통과하면 등하교 상황을 실시간으로 안내합니다. 대표 보호자를 포함해 최대 7명까지 추가 비용 없이 등록할 수 있다고 안내되어 있습니다.",
-			"sourceLabel": "안심알리미 서비스 이용 안내",
-			"sourceUrl": "https://bakdal-e.goeay.kr/bakdal-e/na/ntt/selectNttInfo.do?mi=2979&bbsId=993&nttSn=1303898"
-		},
-		{
-			"category": "학부모 참여",
-			"question": "학부모회 관련 정보는 어디서 확인하나요?",
-			"answer": "학부모마당의 학부모단체 또는 관련 게시판에서 학부모회 정보를 확인할 수 있습니다."
-		},
-		{
-			"category": "학부모 참여",
-			"question": "녹색어머니회나 학부모폴리스회 정보도 홈페이지에 있나요?",
-			"answer": "네. 사이트맵과 학부모 관련 메뉴에서 녹색어머니회, 학부모폴리스회 메뉴를 확인할 수 있습니다."
-		},
-		{
-			"category": "학부모 참여",
-			"question": "학부모마당에서 어떤 메뉴를 볼 수 있나요?",
-			"answer": "홈페이지에서 확인되는 학부모마당 메뉴에는 박달소식, 가정통신문(교육청), 학교운영위원회, 학부모단체, 자유게시판이 있습니다."
-		},
-		{
-			"category": "학부모 참여",
-			"question": "학교운영위원회 안내는 어디서 확인하나요?",
-			"answer": "학부모마당의 학교운영위원회 메뉴에서 관련 공지와 자료를 확인할 수 있습니다."
-		},
-		{
-			"category": "부속기관과 연계 서비스",
-			"question": "병설유치원 정보도 함께 확인할 수 있나요?",
-			"answer": "네. 홈페이지 상단 메뉴에 병설유치원 영역이 있어 관련 안내를 확인할 수 있습니다."
-		},
-		{
-			"category": "부속기관과 연계 서비스",
-			"question": "외부 연계 서비스는 어떤 것이 있나요?",
-			"answer": "홈페이지에는 학교알리미, 디지털도서관, 학부모서비스(NEIS), 방과후학교, 학교시설개방창구 같은 외부 연계 링크가 제공됩니다."
-		}
-	]
+	"faq": []
 }
