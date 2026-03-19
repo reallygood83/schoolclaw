@@ -37,47 +37,60 @@ export async function GET(req: Request): Promise<Response> {
 export async function POST(req: Request): Promise<Response> {
 	if (!checkAuth(req)) return unauthorized();
 
-	const formData = await req.formData();
-	const file = formData.get("file") as File | null;
+	try {
+		const formData = await req.formData();
+		const file = formData.get("file") as File | null;
 
-	if (!file) {
-		return new Response(JSON.stringify({ error: "No file provided" }), {
-			status: 400,
-			headers: { "Content-Type": "application/json" },
+		if (!file) {
+			return new Response(JSON.stringify({ error: "No file provided" }), {
+				status: 400,
+				headers: { "Content-Type": "application/json" },
+			});
+		}
+
+		const filename = file.name;
+		const buffer = await file.arrayBuffer();
+		const timestamp = Date.now();
+
+		let extractedText: string[] = [];
+		if (filename.toLowerCase().endsWith(".hwpx")) {
+			try {
+				extractedText = await extractTextFromHwpx(buffer);
+			} catch (extractErr) {
+				console.error("HWPX extraction failed:", extractErr);
+			}
+		}
+
+		const blobPath = `documents/${timestamp}/${filename}`;
+		const fileBody = new Blob([buffer], { type: file.type || "application/octet-stream" });
+		const blob = await put(blobPath, fileBody, {
+			access: "public",
+			contentType: file.type || "application/octet-stream",
 		});
+
+		const textBlobPath = `documents/${timestamp}/${filename}.extracted.json`;
+		const jsonBody = JSON.stringify({ paragraphs: extractedText, filename, uploadedAt: new Date().toISOString() });
+		await put(textBlobPath, jsonBody, {
+			access: "public",
+			contentType: "application/json",
+		});
+
+		return new Response(
+			JSON.stringify({
+				url: blob.url,
+				filename,
+				paragraphs: extractedText.length,
+				preview: extractedText.slice(0, 5),
+			}),
+			{ headers: { "Content-Type": "application/json" } },
+		);
+	} catch (err) {
+		console.error("Upload error:", err);
+		return new Response(
+			JSON.stringify({ error: err instanceof Error ? err.message : "Upload failed" }),
+			{ status: 500, headers: { "Content-Type": "application/json" } },
+		);
 	}
-
-	const filename = file.name;
-	const buffer = await file.arrayBuffer();
-
-	let extractedText: string[] = [];
-	if (filename.toLowerCase().endsWith(".hwpx")) {
-		extractedText = await extractTextFromHwpx(buffer);
-	}
-
-	const timestamp = Date.now();
-	const blobPath = `documents/${timestamp}/${filename}`;
-
-	const blob = await put(blobPath, Buffer.from(buffer), {
-		access: "public",
-		contentType: file.type || "application/octet-stream",
-	});
-
-	const textBlobPath = `documents/${timestamp}/${filename}.extracted.json`;
-	await put(textBlobPath, JSON.stringify({ paragraphs: extractedText, filename, uploadedAt: new Date().toISOString() }), {
-		access: "public",
-		contentType: "application/json",
-	});
-
-	return new Response(
-		JSON.stringify({
-			url: blob.url,
-			filename,
-			paragraphs: extractedText.length,
-			preview: extractedText.slice(0, 5),
-		}),
-		{ headers: { "Content-Type": "application/json" } },
-	);
 }
 
 export async function DELETE(req: Request): Promise<Response> {
