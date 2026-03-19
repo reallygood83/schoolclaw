@@ -1,6 +1,7 @@
 import type { AssistantMessageEvent, Context, SimpleStreamOptions } from "@mariozechner/pi-ai";
 import { getModel, streamSimple } from "@mariozechner/pi-ai";
 import type { ProxyAssistantMessageEvent } from "@mariozechner/pi-agent-core";
+import { list } from "@vercel/blob";
 
 export const maxDuration = 60;
 
@@ -8,6 +9,23 @@ const CEREBRAS_API_KEY = process.env.CEREBRAS_API_KEY;
 const MODEL_ID = "qwen-3-235b-a22b-instruct-2507";
 const MAX_TOKENS = 1200;
 const TEMPERATURE = 0.3;
+
+async function loadKnowledge(): Promise<string> {
+	try {
+		const { blobs } = await list({ prefix: "documents/" });
+		const extractedBlobs = blobs.filter((b) => b.pathname.endsWith(".extracted.json"));
+
+		const allParagraphs: string[] = [];
+		for (const blob of extractedBlobs) {
+			const res = await fetch(blob.url);
+			const data = (await res.json()) as { paragraphs: string[] };
+			allParagraphs.push(...data.paragraphs);
+		}
+		return allParagraphs.join("\n");
+	} catch {
+		return "";
+	}
+}
 
 function toProxyEvent(event: AssistantMessageEvent): ProxyAssistantMessageEvent | undefined {
 	switch (event.type) {
@@ -61,8 +79,15 @@ export async function POST(req: Request): Promise<Response> {
 	const messages = Array.isArray(body?.context?.messages) ? body.context.messages : [];
 	const model = getModel("cerebras", MODEL_ID);
 
+	const knowledge = await loadKnowledge();
+	const knowledgeBlock = knowledge ? `\n\n## 학교 문서 데이터\n아래는 관리자가 업로드한 학교 문서에서 추출한 내용입니다. 이 내용을 참고하여 답변하세요.\n\n${knowledge}` : "";
+
+	const systemPrompt = (typeof body?.context === "object" && body.context !== null && "systemPrompt" in body.context && typeof (body.context as { systemPrompt?: unknown }).systemPrompt === "string")
+		? (body.context as { systemPrompt: string }).systemPrompt
+		: "";
+
 	const context: Context = {
-		systemPrompt: "",
+		systemPrompt: systemPrompt + knowledgeBlock,
 		messages: messages as Context["messages"],
 		tools: [],
 	};

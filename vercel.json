@@ -4,9 +4,17 @@
 	"functions": {
 		"api/stream.ts": {
 			"maxDuration": 60
+		},
+		"api/admin/documents.ts": {
+			"maxDuration": 30
+		},
+		"api/admin/knowledge.ts": {
+			"maxDuration": 15
 		}
 	},
 	"rewrites": [
-		{ "source": "/api/stream", "destination": "/api/stream" }
+		{ "source": "/api/stream", "destination": "/api/stream" },
+		{ "source": "/api/admin/documents", "destination": "/api/admin/documents" },
+		{ "source": "/api/admin/knowledge", "destination": "/api/admin/knowledge" }
 	]
 }
